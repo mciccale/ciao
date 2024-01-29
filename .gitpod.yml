@@ -1,2 +1,15 @@
 image:
-  file: .docker/gitpod/Dockerfile
+  file: .gitpod/Dockerfile
+
+tasks:
+  - name: Install Dependencies
+    command: |
+      sudo apt-get update && \
+      sudo apt-get install sudo curl git xdg-utils build-essential rlwrap -y && \
+      sudo apt-get clean
+  - name: Install Ciao
+    command: curl https://ciao-lang.org/boot -sSfL | sh -s -- --prebuilt-bin local-install
+# TODO: Upload extension to OpenVSX
+# vscode:
+#   extensions:
+#     - ciao-lang.ciao-prolog-vsc
