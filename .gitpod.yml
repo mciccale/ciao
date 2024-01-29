@@ -4,7 +4,13 @@ tasks:
       sudo apt-get update && \
       sudo apt-get install sudo curl git xdg-utils build-essential rlwrap emacs -y && \
       sudo apt-get clean
-    command: curl https://ciao-lang.org/boot -sSfL | sh -s -- --prebuilt-bin get devenv
+    command: |
+      ./ciao/ciao-boot.sh configure && \
+      ./ciao/ciao-boot.sh build && \
+      ./ciao/ciao-boot.sh install
+
+  - name: Installing CiaoPP and LPdoc
+    command: ciao get ciaopp && ciao get lpdoc
 # TODO: Upload extension to OpenVSX
 # vscode:
 #   extensions:

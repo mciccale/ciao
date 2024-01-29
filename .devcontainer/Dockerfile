@@ -9,4 +9,8 @@ RUN apt-get update && \
 USER vscode
 WORKDIR /home/vscode
 
-RUN curl https://ciao-lang.org/boot -sSfL | sh -s -- --prebuilt-bin get devenv
+RUN ./ciao-boot.sh configure && \
+    ./ciao-boot.sh build && \
+    ./ciao-boot.sh install
+
+RUN ciao get ciaopp && ciao get lpdoc
