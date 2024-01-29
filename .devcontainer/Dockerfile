@@ -9,4 +9,4 @@ RUN apt-get update && \
 USER vscode
 WORKDIR /home/vscode
 
-RUN curl https://ciao-lang.org/boot -sSfL | sh -s -- --prebuilt-bin local-install
+RUN curl https://ciao-lang.org/boot -sSfL | sh -s -- --prebuilt-bin get devenv
