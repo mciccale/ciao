@@ -2,7 +2,7 @@ tasks:
   - name: Installing Tools
     before: |
       sudo apt-get update && \
-      sudo apt-get install sudo curl git xdg-utils build-essential rlwrap -y && \
+      sudo apt-get install sudo curl git xdg-utils build-essential rlwrap emacs -y && \
       sudo apt-get clean
     command: curl https://ciao-lang.org/boot -sSfL | sh -s -- --prebuilt-bin get devenv
 # TODO: Upload extension to OpenVSX
