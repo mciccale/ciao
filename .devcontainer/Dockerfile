@@ -9,8 +9,8 @@ RUN apt-get update && \
 USER vscode
 WORKDIR /home/vscode
 
-RUN ./ciao-boot.sh configure && \
-    ./ciao-boot.sh build && \
-    ./ciao-boot.sh install
+RUN /workspaces/ciao/ciao-boot.sh configure && \
+    /workspaces/ciao/ciao-boot.sh build && \
+    /workspaces/ciao/ciao-boot.sh install
 
 RUN ciao get ciaopp && ciao get lpdoc
