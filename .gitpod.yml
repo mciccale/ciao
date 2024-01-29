@@ -1,6 +1,2 @@
 image:
   file: .docker/gitpod/Dockerfile
-
-vscode:
-  extensions:
-    - ciao-lang.ciao-prolog-vsc
