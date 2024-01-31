@@ -5,7 +5,7 @@
     "dockerfile": "Dockerfile"
   },
 
-  "postCreateCommand": "/workspaces/ciao-boot.sh boot-build && /workspaces/ciao-boot.sh fetch devenv && /workspaces/ciao-boot.sh configure --ciaopp:lite=yes && /workspaces/ciao-boot.sh build && /workspaces/ciao-boot.sh install",
+  "postCreateCommand": "/workspaces/ciao/ciao-boot.sh boot-build && /workspaces/ciao/ciao-boot.sh fetch devenv && /workspaces/ciao/ciao-boot.sh configure --ciaopp:lite=yes && /workspaces/ciao/ciao-boot.sh build && /workspaces/ciao/ciao-boot.sh install",
 
   "customizations": {
     "vscode" : {
