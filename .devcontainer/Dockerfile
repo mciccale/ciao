@@ -5,16 +5,14 @@ USER root
 # Install necessary packages
 RUN apt-get update && \
     apt-get install -y \
+        texlive \
+        texinfo \
         imagemagick \
-        emacs-nox \
-        texlive-latex-base \
-        texlive-binaries \
-        ghostscript && \
+        emacs-nox && \
     apt-get clean
-
-# Adjust ImageMagick policy
-RUN sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xml
 
 # Set user and working directory
 USER vscode
-WORKDIR /workspaces/ciao
+WORKDIR /home/vscode
+
+RUN curl https://ciao-lang.org/boot -sSfL | sh -s -- get devenv

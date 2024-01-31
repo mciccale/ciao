@@ -5,8 +5,6 @@
     "dockerfile": "Dockerfile"
   },
 
-  "postCreateCommand": "/workspaces/ciao/ciao-boot.sh boot-build && /workspaces/ciao/ciao-boot.sh fetch devenv && /workspaces/ciao/ciao-boot.sh configure --ciaopp:lite=yes && /workspaces/ciao/ciao-boot.sh build && /workspaces/ciao/ciao-boot.sh install",
-
   "customizations": {
     "vscode" : {
       "extensions" : [ "ciao-lang.ciao-prolog-vsc" ]
