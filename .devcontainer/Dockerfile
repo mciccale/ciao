@@ -2,15 +2,25 @@ FROM mcr.microsoft.com/devcontainers/base:jammy
 
 USER root
 
+# Install necessary packages
 RUN apt-get update && \
-    apt-get install sudo curl git xdg-utils build-essential rlwrap emacs -y && \
+    apt-get install -y \
+        emacs-nox \
+        texlive-latex-base \
+        texlive-binaries \
+        ghostscript && \
     apt-get clean
 
+# Adjust ImageMagick policy
+RUN sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xml
+
+# Set user and working directory
 USER vscode
-WORKDIR /home/vscode
+WORKDIR /workspaces/ciao
 
-RUN /workspaces/ciao/ciao-boot.sh configure && \
-    /workspaces/ciao/ciao-boot.sh build && \
-    /workspaces/ciao/ciao-boot.sh install
-
-RUN ciao get ciaopp && ciao get lpdoc
+# Run ciao-boot.sh script for building and installing
+RUN ./ciao-boot.sh boot-build && \
+    ./ciao-boot.sh fetch devenv && \
+    ./ciao-boot.sh configure --ciaopp:lite=yes && \
+    ./ciao-boot.sh build && \
+    ./ciao-boot.sh install
