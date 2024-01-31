@@ -5,6 +5,7 @@ USER root
 # Install necessary packages
 RUN apt-get update && \
     apt-get install -y \
+        imagemagick \
         emacs-nox \
         texlive-latex-base \
         texlive-binaries \
