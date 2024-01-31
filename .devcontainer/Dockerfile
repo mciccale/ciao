@@ -18,12 +18,3 @@ RUN sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xm
 # Set user and working directory
 USER vscode
 WORKDIR /workspaces/ciao
-
-RUN if [ -d "/workspaces/ciao" ]; then; echo "dir exists and is a directory."; else; echo "dir does not exist, or is not a directory." ;fi
-
-# Run ciao-boot.sh script for building and installing
-RUN ./ciao-boot.sh boot-build && \
-    ./ciao-boot.sh fetch devenv && \
-    ./ciao-boot.sh configure --ciaopp:lite=yes && \
-    ./ciao-boot.sh build && \
-    ./ciao-boot.sh install
