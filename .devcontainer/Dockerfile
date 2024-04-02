@@ -9,6 +9,7 @@ RUN apt-get update && \
         texlive \
         texinfo \
         imagemagick \
+        rlwrap \
         emacs-nox && \
     apt-get clean
 

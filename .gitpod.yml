@@ -2,16 +2,17 @@ tasks:
   - name: Installing Tools
     before: |
       sudo apt-get update && \
-      sudo apt-get install sudo curl git xdg-utils build-essential rlwrap emacs -y && \
+      sudo apt-get install -y \
+          curl \
+          texlive \
+          texinfo \
+          imagemagick \
+          rlwrap \
+          emacs-nox && \
       sudo apt-get clean
     command: |
-      ./ciao/ciao-boot.sh configure && \
-      ./ciao/ciao-boot.sh build && \
-      ./ciao/ciao-boot.sh install
+      curl https://ciao-lang.org/boot -sSfL | sh -s -- get devenv
 
-  - name: Installing CiaoPP and LPdoc
-    command: ciao get ciaopp && ciao get lpdoc
-# TODO: Upload extension to OpenVSX
-# vscode:
-#   extensions:
-#     - ciao-lang.ciao-prolog-vsc
+vscode:
+  extensions:
+    - ciao-lang.ciao-prolog-vsc
