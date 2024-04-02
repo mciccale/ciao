@@ -1,5 +1,5 @@
 image:
-  file: .devContainer/Dockerfile
+  file: .devcontainer/Dockerfile
 
 vscode:
   extensions:
