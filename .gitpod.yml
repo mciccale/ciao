@@ -1,17 +1,13 @@
 tasks:
-  - name: Installing Tools
+  - name: Installing Ciao
     before: |
       sudo apt-get update && \
       sudo apt-get install -y \
           curl \
-          texlive \
-          texinfo \
-          imagemagick \
           rlwrap \
           emacs-nox && \
-      sudo apt-get clean
-    command: |
-      curl https://ciao-lang.org/boot -sSfL | sh -s -- get devenv
+      sudo apt-get clean && \
+      curl https://ciao-lang.org/boot -sSfL | sh -s -- --prebuilt-bin local-install
 
 vscode:
   extensions:

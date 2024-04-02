@@ -6,9 +6,6 @@ USER root
 RUN apt-get update && \
     apt-get install -y \
         curl \
-        texlive \
-        texinfo \
-        imagemagick \
         rlwrap \
         emacs-nox && \
     apt-get clean
@@ -17,4 +14,4 @@ RUN apt-get update && \
 USER vscode
 WORKDIR /home/vscode
 
-RUN curl https://ciao-lang.org/boot -sSfL | sh -s -- get devenv
+RUN curl https://ciao-lang.org/boot -sSfL | sh -s -- --prebuilt-bin local-install
